@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<h1>Validation</h1>
+
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" v-model="user.email" id="email" name="email" class="form-control" :class="{ 'is-invalid': submitted && $v.user.email.$error }" />
+    <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
+        <span v-if="!$v.user.email.required">Email is required</span>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" v-model="user.password" id="password" name="password" class="form-control" &@:class="{ 'is-invalid': submitted && $v.user.password.$error }" />
+        <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+            <span v-if="!$v.user.password.required">Password is required</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
